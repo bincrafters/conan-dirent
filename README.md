@@ -1,7 +1,7 @@
 
 | Bintray | Windows | Linux & macOS |
 |:--------:|:---------:|:-----------------:|
-|[![Download](https://api.bintray.com/packages/bincrafters/public-conan/dirent%3Abincrafters/images/download.svg) ](https://bintray.com/bincrafters/public-conan/dirent%3Abincrafters/_latestVersion)|[![Build status](https://ci.appveyor.com/api/projects/status/github/bincrafters/conan-dirent?svg=true)](https://ci.appveyor.com/project/BinCrafters/conan-dirent)| **NOT SUPPORTED** |
+|[![Download](https://api.bintray.com/packages/bincrafters/public-conan/dirent-win32%3Abincrafters/images/download.svg) ](https://bintray.com/bincrafters/public-conan/dirent-win32%3Abincrafters/_latestVersion)|[![Build status](https://ci.appveyor.com/api/projects/status/github/bincrafters/conan-dirent-win32?svg=true)](https://ci.appveyor.com/project/BinCrafters/conan-dirent-win32)| **NOT SUPPORTED** |
 
 
 Bincrafters packages can be found in the following public Conan repository:

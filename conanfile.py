@@ -5,8 +5,8 @@ from conans import ConanFile, tools
 from conans.errors import ConanInvalidConfiguration
 
 
-class DirEntConan(ConanFile):
-    name = "dirent"
+class DirEntConanWin32(ConanFile):
+    name = "dirent-win32"
     version = "1.23.2"
     description = "Dirent is a C/C++ programming interface that allows programmers to retrieve information about " \
                   "files and directories under Linux/UNIX"
@@ -27,7 +27,7 @@ class DirEntConan(ConanFile):
     def source(self):
         tools.get("{0}/archive/{1}.tar.gz".format(self.homepage, self.version),
                   sha256="f72d39e3c39610b6901e391b140aa69b51e0eb99216939ed5e547b5dad03afb1")
-        extracted_dir = self.name + "-" + self.version
+        extracted_dir = "dirent-" + self.version
         os.rename(extracted_dir, self._source_subfolder)
 
     def package(self):
