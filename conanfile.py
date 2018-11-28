@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-from conans import ConanFile, CMake, tools
-from conans.errors import ConanInvalidConfiguration
 import os
+from conans import ConanFile, tools
+from conans.errors import ConanInvalidConfiguration
 
 
 class DirEntConan(ConanFile):
@@ -17,11 +16,9 @@ class DirEntConan(ConanFile):
     author = "Bincrafters <bincrafters@gmail.com>"
     license = "MIT"
     exports = ["LICENSE.md"]
-    exports_sources = ["CMakeLists.txt"]
-    generators = "cmake"
-    settings = "os", "arch", "compiler", "build_type"
+    settings = "compiler"
+    no_copy_source = True
     _source_subfolder = "source_subfolder"
-    _build_subfolder = "build_subfolder"
 
     def configure(self):
         if self.settings.compiler != "Visual Studio":
@@ -33,20 +30,9 @@ class DirEntConan(ConanFile):
         extracted_dir = self.name + "-" + self.version
         os.rename(extracted_dir, self._source_subfolder)
 
-    def _configure_cmake(self):
-        cmake = CMake(self)
-        cmake.definitions["BUILD_TESTS"] = False
-        cmake.configure(build_folder=self._build_subfolder)
-        return cmake
-
-    def build(self):
-        cmake = self._configure_cmake()
-        cmake.build()
-
     def package(self):
         self.copy(pattern="LICENSE", dst="licenses", src=self._source_subfolder)
-        cmake = self._configure_cmake()
-        cmake.install()
+        self.copy(pattern="dirent.h", dst="include", src=os.path.join(self._source_subfolder, "include"))
 
     def package_id(self):
         self.info.header_only()
