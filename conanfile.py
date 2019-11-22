@@ -11,7 +11,6 @@ class DirEntConanWin32(ConanFile):
     topics = ("conan", "dirent", "directory", "file system")
     url = "https://github.com/bincrafters/conan-dirent"
     homepage = "https://github.com/tronkko/dirent"
-    author = "Bincrafters <bincrafters@gmail.com>"
     license = "MIT"
     exports = ["LICENSE.md"]
     settings = "compiler"
